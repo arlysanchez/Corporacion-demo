@@ -1,0 +1,1040 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Corporación Demo - Agroindustria, ingeniería y maquinaria pesada.">
+  <title>Corporación Demo | Grupo Industrial</title>
+
+  <style>
+    :root {
+      --dark: #18201f;
+      --dark-2: #25302d;
+      --gold: #c9a66b;
+      --gold-light: #e4c995;
+      --white: #ffffff;
+      --text: #27312e;
+      --muted: #6d7772;
+      --light: #f5f5f1;
+      --border: #e2e5df;
+      --radius: 16px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .section {
+      padding: 90px 0;
+    }
+
+    .section-title {
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.15;
+      margin: 12px 0 18px;
+      letter-spacing: -1px;
+    }
+
+    .section-description {
+      max-width: 650px;
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+
+    /* NAVEGACIÓN */
+
+    .navbar {
+      background: var(--dark);
+      color: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-content {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 15px;
+      font-weight: bold;
+      letter-spacing: .8px;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--gold);
+      border-radius: 9px;
+      color: var(--gold);
+      font-weight: 900;
+    }
+
+    .brand span:last-child span {
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      font-size: 13px;
+    }
+
+    .nav-links a {
+      color: #dce1dd;
+      transition: color .2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold-light);
+    }
+
+    .nav-button {
+      background: var(--gold);
+      color: var(--dark) !important;
+      padding: 10px 17px;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 650px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(15, 26, 24, .98), rgba(24, 32, 31, .82), rgba(24, 32, 31, .5)),
+        url("https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1800&q=85")
+        center / cover;
+    }
+
+    .hero-content {
+      max-width: 730px;
+      color: var(--white);
+      padding: 90px 0;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 6vw, 72px);
+      line-height: 1.05;
+      letter-spacing: -2px;
+      margin: 22px 0;
+    }
+
+    .hero h1 span {
+      color: var(--gold-light);
+    }
+
+    .hero p {
+      color: #d2dad5;
+      font-size: 17px;
+      max-width: 600px;
+      margin-bottom: 32px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 14px 22px;
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: bold;
+      border: 1px solid transparent;
+      transition: .2s;
+      cursor: pointer;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--dark);
+    }
+
+    .btn-gold:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border-color: #65726c;
+      color: var(--white);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold-light);
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 45px;
+      margin-top: 55px;
+      padding-top: 25px;
+      border-top: 1px solid rgba(255,255,255,.2);
+    }
+
+    .hero-stats strong {
+      display: block;
+      font-size: 32px;
+      color: var(--gold-light);
+    }
+
+    .hero-stats small {
+      color: #c2cbc5;
+      font-size: 12px;
+    }
+
+    /* PRESENTACIÓN */
+
+    .intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .intro-image {
+      min-height: 390px;
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, rgba(24,32,31,.05), rgba(24,32,31,.35)),
+        url("https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1000&q=85")
+        center / cover;
+    }
+
+    .intro-text p {
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .intro-list {
+      list-style: none;
+      margin-top: 25px;
+    }
+
+    .intro-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+    }
+
+    .intro-list li::before {
+      content: "✓";
+      color: var(--gold);
+      font-weight: bold;
+      margin-right: 12px;
+    }
+
+    /* EMPRESAS */
+
+    .companies-section {
+      background: var(--light);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .section-header .section-description {
+      margin-bottom: 0;
+    }
+
+    .companies-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .company-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform .25s, box-shadow .25s;
+    }
+
+    .company-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 35px rgba(24,32,31,.09);
+    }
+
+    .company-banner {
+      height: 155px;
+      display: flex;
+      align-items: end;
+      padding: 23px;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .company-banner::after {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 50%;
+      right: -40px;
+      top: -80px;
+    }
+
+    .moli-banner {
+      background:
+        linear-gradient(135deg, rgba(39,57,34,.6), rgba(120,101,57,.65)),
+        url("https://images.unsplash.com/photo-1551754655-cd27e38d2076?auto=format&fit=crop&w=800&q=80")
+        center / cover;
+    }
+
+    .uni-banner {
+      background:
+        linear-gradient(135deg, rgba(27,48,59,.85), rgba(84,112,122,.65)),
+        url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80")
+        center / cover;
+    }
+
+    .ane-banner {
+      background:
+        linear-gradient(135deg, rgba(49,49,67,.9), rgba(115,100,132,.65)),
+        url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80")
+        center / cover;
+    }
+
+    .company-banner h3 {
+      font-size: 24px;
+      font-weight: 800;
+      position: relative;
+      z-index: 1;
+      letter-spacing: .5px;
+    }
+
+    .company-body {
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .company-label {
+      font-size: 11px;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .company-body h4 {
+      font-size: 20px;
+      line-height: 1.3;
+      margin-bottom: 13px;
+    }
+
+    .company-body p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+
+    .company-body .btn {
+      width: 100%;
+      margin-top: auto;
+    }
+
+    .btn-dark {
+      background: var(--dark);
+      color: var(--white);
+    }
+
+    .btn-dark:hover {
+      background: var(--dark-2);
+    }
+
+    /* SECTORES */
+
+    .sectors {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .sector-card {
+      min-height: 330px;
+      border-radius: var(--radius);
+      padding: 35px;
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      overflow: hidden;
+      position: relative;
+      background: var(--dark);
+    }
+
+    .sector-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(12,21,19,.95), rgba(12,21,19,.15));
+    }
+
+    .sector-machinery {
+      background:
+        url("https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1000&q=85")
+        center / cover;
+    }
+
+    .sector-agro {
+      background:
+        url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000&q=85")
+        center / cover;
+    }
+
+    .sector-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .sector-number {
+      color: var(--gold-light);
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .sector-card h3 {
+      font-size: 28px;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .sector-card p {
+      color: #d1d9d4;
+      font-size: 14px;
+    }
+
+    /* VALORES */
+
+    .values-section {
+      background: var(--dark);
+      color: var(--white);
+    }
+
+    .values-section .section-description {
+      color: #c2cbc5;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .value-card {
+      padding: 30px 0;
+      border-top: 1px solid #47534e;
+    }
+
+    .value-icon {
+      font-size: 30px;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .value-card h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    .value-card p {
+      color: #c2cbc5;
+      font-size: 14px;
+    }
+
+    /* CONTACTO */
+
+    .contact-box {
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 55px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .contact-box h2 {
+      font-size: 34px;
+      line-height: 1.2;
+      margin: 10px 0 15px;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      max-width: 570px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #101715;
+      color: #b7c1ba;
+      padding: 55px 0 25px;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      flex-wrap: wrap;
+      padding-bottom: 35px;
+      border-bottom: 1px solid #303b36;
+    }
+
+    .footer-brand {
+      color: var(--white);
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .footer-top p {
+      font-size: 13px;
+      max-width: 350px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 13px;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold-light);
+    }
+
+    .footer-bottom {
+      padding-top: 25px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 12px;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 850px) {
+      .nav-links {
+        gap: 15px;
+      }
+
+      .intro,
+      .sectors {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .intro-image {
+        min-height: 280px;
+      }
+
+      .companies-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .values-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .contact-box {
+        flex-direction: column;
+        align-items: start;
+        padding: 35px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .section {
+        padding: 60px 0;
+      }
+
+      .nav-content {
+        min-height: 68px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: 600px;
+      }
+
+      .hero h1 {
+        letter-spacing: -1px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .hero-stats {
+        gap: 25px;
+      }
+
+      .hero-stats strong {
+        font-size: 25px;
+      }
+
+      .companies-grid,
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-header {
+        display: block;
+      }
+
+      .section-header .section-description {
+        margin-top: 15px;
+      }
+
+      .sector-card {
+        min-height: 290px;
+        padding: 25px;
+      }
+
+      .contact-box h2 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVEGACIÓN -->
+  <header class="navbar">
+    <div class="container nav-content">
+      <a href="#" class="brand">
+        <span class="brand-mark">CD</span>
+        <span>CORPORACIÓN <span>DEMO</span></span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#nosotros">Nosotros</a>
+        <a href="#empresas">Empresas</a>
+        <a href="#sectores">Sectores</a>
+        <a href="#contacto" class="nav-button">Contacto ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="eyebrow">Grupo industrial · Perú</div>
+
+        <h1>
+          Construimos el futuro
+          <span>desde la industria.</span>
+        </h1>
+
+        <p>
+          Una corporación que integra agroindustria, ingeniería
+          y soluciones para el desarrollo productivo.
+          Tres empresas, una visión compartida.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#empresas" class="btn btn-gold">
+            Conoce nuestras empresas ↗
+          </a>
+
+          <a href="#sectores" class="btn btn-outline">
+            Nuestros sectores
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div>
+            <strong>03</strong>
+            <small>Empresas del grupo</small>
+          </div>
+
+          <div>
+            <strong>02</strong>
+            <small>Sectores industriales</small>
+          </div>
+
+          <div>
+            <strong>01</strong>
+            <small>Visión corporativa</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOSOTROS -->
+  <section class="section" id="nosotros">
+    <div class="container intro">
+      <div class="intro-image"></div>
+
+      <div class="intro-text">
+        <div class="eyebrow">Nuestra corporación</div>
+
+        <h2 class="section-title">
+          Industria que transforma oportunidades.
+        </h2>
+
+        <p>
+          Corporación Demo es una propuesta de grupo empresarial
+          orientada al desarrollo de actividades industriales,
+          agroindustriales y de construcción.
+        </p>
+
+        <p>
+          Integramos capacidades, recursos y experiencia para
+          ofrecer soluciones que contribuyan al crecimiento
+          de nuestros clientes y de las comunidades donde operamos.
+        </p>
+
+        <ul class="intro-list">
+          <li>Desarrollo industrial y productivo.</li>
+          <li>Soluciones para diferentes sectores.</li>
+          <li>Visión de crecimiento sostenible.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- EMPRESAS -->
+  <section class="section companies-section" id="empresas">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <div class="eyebrow">Nuestras empresas</div>
+
+          <h2 class="section-title">
+            Un grupo. Tres capacidades.
+          </h2>
+        </div>
+
+        <p class="section-description">
+          Conoce las empresas que forman parte de nuestra
+          propuesta corporativa.
+        </p>
+      </div>
+
+      <div class="companies-grid">
+
+        <!-- MOLI-SELVA -->
+        <article class="company-card">
+          <div class="company-banner moli-banner">
+            <h3>MOLI-SELVA</h3>
+          </div>
+
+          <div class="company-body">
+            <div class="company-label">Agroindustria</div>
+
+            <h4>Granos que transforman la producción.</h4>
+
+            <p>
+              Procesamiento de granos de maíz en diversas
+              granulometrías y producción de alimento balanceado
+              para la ganadería y avicultura.
+            </p>
+
+            <a
+              href="https://arlysanchez.github.io/moli-selva/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-dark">
+              Visitar Moli-Selva ↗
+            </a>
+          </div>
+        </article>
+
+        <!-- UNICORCON -->
+        <article class="company-card">
+          <div class="company-banner uni-banner">
+            <h3>UNICORCON</h3>
+          </div>
+
+          <div class="company-body">
+            <div class="company-label">Ingeniería y construcción</div>
+
+            <h4>Soluciones para grandes proyectos.</h4>
+
+            <p>
+              Servicios de ingeniería, construcción, concreto
+              premezclado, agregados y maquinaria pesada para
+              proyectos de infraestructura.
+            </p>
+
+            <a
+              href="https://arlysanchez.github.io/unicorcon_site/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-dark">
+              Visitar UNICORCON ↗
+            </a>
+          </div>
+        </article>
+
+        <!-- ANEDU -->
+        <article class="company-card">
+          <div class="company-banner anedu-banner ane-banner">
+            <h3>ANEDU</h3>
+          </div>
+
+          <div class="company-body">
+            <div class="company-label">Unidad corporativa</div>
+
+            <h4>Una empresa con visión de crecimiento.</h4>
+
+            <p>
+              Conoce la propuesta y los servicios de ANEDU
+              en su página oficial. Esta unidad forma parte
+              del portal corporativo.
+            </p>
+
+            <a
+              href="https://arlysanchez.github.io/anedu_site/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-dark">
+              Visitar ANEDU ↗
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTORES -->
+  <section class="section" id="sectores">
+    <div class="container">
+      <div class="eyebrow">Áreas de operación</div>
+
+      <h2 class="section-title">
+        Industria que mueve oportunidades.
+      </h2>
+
+      <p class="section-description">
+        Nuestras líneas de actividad se conectan para impulsar
+        el desarrollo de proyectos y procesos productivos.
+      </p>
+
+      <div class="sectors">
+
+        <article class="sector-card sector-machinery">
+          <div class="sector-content">
+            <div class="sector-number">01 · INDUSTRIA Y MAQUINARIA</div>
+
+            <h3>Fuerza para grandes proyectos.</h3>
+
+            <p>
+              Maquinaria pesada, construcción, agregados y
+              soluciones técnicas para el desarrollo
+              de infraestructura.
+            </p>
+          </div>
+        </article>
+
+        <article class="sector-card sector-agro">
+          <div class="sector-content">
+            <div class="sector-number">02 · AGROINDUSTRIA</div>
+
+            <h3>Del campo a la producción.</h3>
+
+            <p>
+              Transformación de materias primas, procesamiento
+              de granos y productos para la cadena de
+              alimentación animal.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- VALORES -->
+  <section class="section values-section">
+    <div class="container">
+      <div class="eyebrow">Lo que nos define</div>
+
+      <h2 class="section-title">
+        Una visión compartida.
+      </h2>
+
+      <p class="section-description">
+        Principios que orientan la construcción de una
+        corporación sólida y comprometida con su entorno.
+      </p>
+
+      <div class="values-grid">
+        <article class="value-card">
+          <div class="value-icon">◈</div>
+          <h3>Integración</h3>
+          <p>
+            Conectamos nuestras empresas y capacidades para
+            generar soluciones complementarias.
+          </p>
+        </article>
+
+        <article class="value-card">
+          <div class="value-icon">⚙</div>
+          <h3>Innovación</h3>
+          <p>
+            Buscamos mejorar nuestros procesos y responder
+            a las necesidades de cada sector.
+          </p>
+        </article>
+
+        <article class="value-card">
+          <div class="value-icon">↗</div>
+          <h3>Desarrollo</h3>
+          <p>
+            Promovemos el crecimiento productivo y la
+            generación de nuevas oportunidades.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="section" id="contacto">
+    <div class="container">
+      <div class="contact-box">
+        <div>
+          <div class="eyebrow">Conversemos</div>
+
+          <h2>
+            ¿Quieres conocer nuestro grupo?
+          </h2>
+
+          <p>
+            Visita nuestras empresas y descubre las soluciones
+            que podemos desarrollar para tu negocio.
+          </p>
+        </div>
+
+        <a href="#empresas" class="btn btn-gold">
+          Explorar empresas ↗
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand">CORPORACIÓN DEMO</div>
+
+          <p>
+            Grupo empresarial orientado al desarrollo
+            industrial, agroindustrial y de construcción.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <strong style="color:#fff">Empresas</strong>
+          <a href="https://arlysanchez.github.io/moli-selva/" target="_blank">
+            Moli-Selva
+          </a>
+          <a href="https://arlysanchez.github.io/unicorcon_site/" target="_blank">
+            UNICORCON
+          </a>
+          <a href="https://arlysanchez.github.io/anedu_site/" target="_blank">
+            ANEDU
+          </a>
+        </div>
+
+        <div class="footer-links">
+          <strong style="color:#fff">Navegación</strong>
+          <a href="#nosotros">Nosotros</a>
+          <a href="#sectores">Sectores</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Corporación Demo. Todos los derechos reservados.</span>
+        <span>Portal corporativo · Propuesta inicial</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
